@@ -61,6 +61,10 @@ fi
 mv heroku-client/* .
 rmdir heroku-client
 
+# install redis plugin
+echo "-----> Installing plugins"
+bin/heroku plugins:install heroku-redis
+
 echo "-----> Moving the netrc generation script into app/.profile.d"
 mkdir -p $BUILD_DIR/.profile.d
 cp "$BUILDPACK_DIR/bin/gen-netrc.sh" $BUILD_DIR/.profile.d/
